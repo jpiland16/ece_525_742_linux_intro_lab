@@ -596,7 +596,7 @@ proc create_root_design { parentCell } {
     CONFIG.C_ALL_INPUTS_2 {1} \
     CONFIG.C_ALL_OUTPUTS {1} \
     CONFIG.C_GPIO2_WIDTH {4} \
-    CONFIG.C_GPIO_WIDTH {4} \
+    CONFIG.C_GPIO_WIDTH {7} \
     CONFIG.C_IS_DUAL {1} \
   ] $DIPS_AND_LEDS
 
@@ -611,10 +611,10 @@ proc create_root_design { parentCell } {
     CONFIG.Latency {8} \
     CONFIG.M_DATA_Has_TUSER {Not_Required} \
     CONFIG.Noise_Shaping {Auto} \
-    CONFIG.Output_Frequency1 {0.001} \
+    CONFIG.Output_Frequency1 {0.003} \
     CONFIG.Output_Selection {Sine} \
     CONFIG.Output_Width {15} \
-    CONFIG.PINC1 {1000011000110} \
+    CONFIG.PINC1 {11001001010100} \
     CONFIG.Parameter_Entry {System_Parameters} \
     CONFIG.Phase_Width {29} \
     CONFIG.Spurious_Free_Dynamic_Range {90} \

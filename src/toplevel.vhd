@@ -43,11 +43,17 @@ entity design_1_wrapper is
     mclk : out STD_LOGIC;
     sdata : out STD_LOGIC;
     sw : in std_logic_vector(3 downto 0); 
-    leds : out std_logic_vector(3 downto 0)
+    leds : out std_logic_vector(3 downto 0);
+    led6_r : out STD_LOGIC;
+    led6_g : out STD_LOGIC;
+    led6_b : out STD_LOGIC
   );
 end design_1_wrapper;
 
 architecture STRUCTURE of design_1_wrapper is
+
+ signal all_leds: std_logic_vector(6 downto 0);
+
  component design_1 is
   port (
     DDR_cas_n : inout STD_LOGIC;
@@ -82,7 +88,7 @@ architecture STRUCTURE of design_1_wrapper is
     lrck : out STD_LOGIC;
     mclk : out STD_LOGIC;
     sdata : out STD_LOGIC;
-    leds_gpio_tri_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    leds_gpio_tri_o : out STD_LOGIC_VECTOR ( 6 downto 0 );
     dips_gpio_tri_i : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
   end component design_1;
@@ -150,8 +156,12 @@ design_1_i: component design_1
       sdata => sdata,
       clk125=>clk125,
       dips_gpio_tri_i => sw,
-      leds_gpio_tri_o => leds
+      leds_gpio_tri_o => all_leds
     );
     
 ac_muten <= '1';    
+leds <= all_leds(3 downto 0);
+led6_r <= all_leds(4);
+led6_g <= all_leds(5);
+led6_b <= all_leds(6);
 end STRUCTURE;
